@@ -1,28 +1,30 @@
 #include <iostream>
 using namespace std;
-day = 4;
+string dia[7]={"segunda", "terca", "quarta", "quinta", "sexta", "sabado", "domingo"};
 int main (){
+    int day;
+    cin >> day;
     switch (day) {
     case 1:
-        cout << "Monday";
+        cout << dia[0];
         break;
     case 2:
-        cout << "Tuesday";
+        cout << dia[1];
         break;
     case 3:
-        cout << "Wednesday";
+        cout << dia[2];
         break;
     case 4:
-        cout << "Thursday";
+        cout << dia[3];
         break;
     case 5:
-        cout << "Friday";
+        cout << dia[4];
         break;
     case 6:
-        cout << "Saturday";
+        cout << dia[5];
         break;
     case 7:
-        cout << "Sunday";
+        cout << dia[6];
         break;
     }
 }
