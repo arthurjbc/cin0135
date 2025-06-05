@@ -13,6 +13,8 @@ struct node
 }; //fora da pilha
 
 
+
+
 node* newnode(int v){
     node* ret = new node;   //ret --> ponteiro para nó
     (*ret).val= v;
@@ -86,18 +88,61 @@ void listDelete(node* cur){
     delete Morre;
 }
 
-void listDeleteValor (node *head, int pos){
-    
+//void listDeleteValor (node *head, int pos){
+//    listDelete(acessoEndereçoProfessor(head, pos));
+//}
+
+//aula08
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//aula10
+
+class listaEncadeada
+{
+
+private:
+    node *head;         //private pq não há sentido em tornar publico o endereço dos nós para o usuario
+    size_t tamanho;
+
+public:
+    listaEncadeada();
+    size_t size(){
+        return tamanho;
+    }  //expõe o tamanho da lista sem tornar a variavel tamanho vuneravel
+    void append(int val);
+    void insert(size_t pos, int val);
+	int remove(int pos);
+    int at(size_t pos);
+
+};
+
+listaEncadeada::listaEncadeada(){
+    head = newnode(-1);
+    tamanho = 0;
+    /*node *cur = head;
+    while (cur!=nullptr){
+        node *next=cur->next;
+        delete cur;
+        cur = next;
+    }*/
 }
 
-int main(){
-    node *head = newEmptyList();
-    for (int j=10; j<51; j+=10){ // lista = [10, 20, 30, 40, 50]
-        appendNoFim(head, j);
+void listaEncadeada::append(int val){
+    node* nn = newnode(val);
+    node *cursor = head;
+    while (cursor -> next){ //enquanto o cursor n achar um valor nulo, ele continua caminhando para a direita
+        cursor = cursor->next;
     }
-    node *cursor=head->next;
-    while (cursor->next!=nullptr){
-        cout << cursor->val << endl;
-        cursor=cursor->next;
+    cursor -> next = nn;
+}
+//
+//void listaEncadeada::insert(size_t pos, int valor){
+//    inserir(acessoEndereçoProfessor(head, pos), valor);
+//}
+//
+int main(){
+    listaEncadeada list;
+    for (int i=0; i>5; i++){
+        list.append(4);
+        cout << list.size() << endl;
     }
 }
