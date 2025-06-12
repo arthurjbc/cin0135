@@ -25,7 +25,7 @@ node* newEmptyList(){
 void append(node *head, int v){
     node* nn = newnode(v);
     node *cursor = head;
-    while (cursor -> next){ //enquanto o cursor n achar um valor nulo, ele continua caminhando para a direita
+    while (cursor -> next != nullptr){ //enquanto o cursor n achar um valor nulo, ele continua caminhando para a direita
         cursor = cursor->next;
     }
     cursor -> next = nn;
