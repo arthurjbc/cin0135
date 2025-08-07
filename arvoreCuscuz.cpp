@@ -47,16 +47,15 @@ void printTree(Node<T> *root, int depth = 0)
 
 Node<int> *buildCuscuz(int max, int val){
     Node <int> *root = new Node<int>(val);
-    if (root==nullptr) return root;
-    for (int i=max; i>=0; i--){
-        root -> AddChd(new Node <int> (root->Val()-i));
-        auto cur = root -> Chd(root->Val()-i);
+    for (int i=0; i<max; i++){
+        if (val-i-1<0) return root;
+        root -> AddChd(buildCuscuz(max, val-i-1));
     }
     return root;
 }
 
 int main() {
-    int n=10;
-    int m=2;
+    int n=5;
+    int m=3;
     printTree(buildCuscuz(m, n));
 }
