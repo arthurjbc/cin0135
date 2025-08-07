@@ -54,8 +54,27 @@ Node<int> *buildCuscuz(int max, int val){
     return root;
 }
 
+Node <int> *checar(int seq[], int i, Node<int> *root){
+    if (root == nullptr) return root;
+    cout << root->Val() << std::endl;
+    for (int i = 0; i < 5; i++) 
+    {
+        if (root->Val()==seq[i]){
+            auto c = root->Chd(i);
+            checar(seq, i+1, c);
+        }else{
+            cout << "n deu" <<endl;
+        }
+    }
+    return root;
+}
+
 int main() {
     int n=5;
     int m=3;
+    int sequencia[5]={5, 4, 2, 1, 2};
+    //printTree(buildCuscuz(m, n));
     printTree(buildCuscuz(m, n));
+    int a = checar(sequencia, 0, buildCuscuz(m, n))->Val();
+    //cout << a<<endl;
 }
